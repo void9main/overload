@@ -1,11 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
 a {
   color: #00B7FF;
 }
+@font-face {
+    /* font-properties */
+    font-family: apple-font;
+    src:url('myriadsetpro-semibold.ttf'),  
+}
 .index-div{
-	margin-top: 150px;
+	margin-top: 150px;font-family: apple-font;
+}
+.socket-div{
+	border: solid 1px #000000;width: 46%;float: left;margin-left: 3%;min-height: 700px;
+}
+.index-footer{
+	width: 100%;height: 100px;background-color: #727f80;position:fixed;bottom:0;
 }

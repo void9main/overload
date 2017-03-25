@@ -7,5 +7,4 @@ var net = require('net');
 router.get('/', function(req, res, next) {
   res.render('socket');
 });
-
 module.exports = router;
