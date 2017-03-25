@@ -3,9 +3,21 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="/javascripts/jquery.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="/javascripts/echarts.min.js" ></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  	<div align="center">
+  		<div class="index-div">
+		    <h1><%= title %></h1>
+		    <h4><%= des %></h4>
+		   	<p>
+		    	<button class="btn btn-primary btn-sm" style="width: 136px;"><%= content %></button>
+		    </p>
+		  </div>
+    </div>
   </body>
 </html>
