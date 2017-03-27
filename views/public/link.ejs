@@ -7,8 +7,22 @@
     <script src="http://localhost:3303/socket.io/socket.io.js"></script>
     <script>
      	  var socket=io.connect("http://localhost:3303");
-          socket.on("news", function (data) {
-              $("#message_one").text(data.hello);
-              socket.emit("otherEvent",{my:"link"});
+          socket.on("message_o", function (data) {
+              $("#content_one").append("<p>"+data.hello+"</p>");
           });
+          //窗口一接收
+          socket.on("message_t", function (data) {
+              $("#content_two").append("<p>"+data.hello+"</p>");
+          });
+          //窗口二接收
+          function send_one(){
+          	var msg_one=$("#massage_one").val();
+          	socket.emit("msg_one",msg_one);
+          }
+          //窗口一发送
+          function send_two(){
+          	var msg_two=$("#massage_two").val();
+          	socket.emit("msg_two",msg_two);
+          }
+          //窗口二发送
 	</script>

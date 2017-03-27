@@ -11,9 +11,13 @@ router.get('/', function(req, res, next) {
   res.render('socket');
   var socket=sio.listen(server);
   socket.on("connection", function (socket) {
-    socket.emit("news",{hello:"你好"});
-    socket.on("otherEvent", function (data) {
-	    console.log(data);
+    socket.on("msg_one", function (data) {
+	    socket.emit("message_o",{hello:data});
+			socket.emit("message_t",{hello:data});
+	  });
+	socket.on("msg_two", function (data) {
+	    socket.emit("message_o",{hello:data});
+			socket.emit("message_t",{hello:data});
 	  });
   });
   server.listen(3303);
