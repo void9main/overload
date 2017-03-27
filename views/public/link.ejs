@@ -4,4 +4,11 @@
     <script type="text/javascript" src="/javascripts/jquery.min.js" ></script>
     <script type="text/javascript" src="/javascripts/bootstrap.min.js" ></script>
     <script type="text/javascript" src="/javascripts/echarts.min.js" ></script>
-    
+    <script src="http://localhost:3303/socket.io/socket.io.js"></script>
+    <script>
+     	  var socket=io.connect("http://localhost:3303");
+          socket.on("news", function (data) {
+              $("#message_one").text(data.hello);
+              socket.emit("otherEvent",{my:"link"});
+          });
+	</script>
