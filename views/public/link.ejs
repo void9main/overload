@@ -8,21 +8,43 @@
     <script>
      	  var socket=io.connect("http://localhost:3303");
           socket.on("message_o", function (data) {
-              $("#content_one").append("<p>"+data.hello+"</p>");
+          	if(data.sex==="man"){
+              $("#content_one").append(
+	              "<div align='right'><span>"
+					+data.say+
+					"</span><img src='/images/man.jpg' style='width: 40px;margin: 10px;'></div>");
+	        }else if(data.sex==="woman"){
+	          $("#content_one").append(
+	              "<div ><img src='/images/woman.jpg' style='width: 40px;margin: 10px;'><span>"
+					+data.say+
+					"</span></div>");
+	        }
           });
           //窗口一接收
           socket.on("message_t", function (data) {
-              $("#content_two").append("<p>"+data.hello+"</p>");
+              if(data.sex==="man"){
+              	$("#content_two").append(
+	              	"<div><img src='/images/man.jpg' style='width: 40px;margin: 10px;'><span>"
+					+data.say+
+					"</span></div>");
+	       	 	}else if(data.sex==="woman"){
+	          		$("#content_two").append(
+	              	"<div align='right'><span>"
+					+data.say+
+					"</span><img src='/images/woman.jpg' style='width: 40px;margin: 10px;'></div>");
+	        	}
           });
           //窗口二接收
           function send_one(){
           	var msg_one=$("#massage_one").val();
           	socket.emit("msg_one",msg_one);
+          	$("#massage_one").val('');
           }
           //窗口一发送
           function send_two(){
           	var msg_two=$("#massage_two").val();
           	socket.emit("msg_two",msg_two);
+          	$("#massage_two").val('');
           }
           //窗口二发送
 	</script>

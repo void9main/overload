@@ -12,12 +12,12 @@ router.get('/', function(req, res, next) {
   var socket=sio.listen(server);
   socket.on("connection", function (socket) {
     socket.on("msg_one", function (data) {
-	    socket.emit("message_o",{hello:data});
-			socket.emit("message_t",{hello:data});
+	    socket.emit("message_o",{say:data,sex:"man"});
+			socket.emit("message_t",{say:data,sex:"man"});
 	  });
 	socket.on("msg_two", function (data) {
-	    socket.emit("message_o",{hello:data});
-			socket.emit("message_t",{hello:data});
+	    socket.emit("message_o",{say:data,sex:"woman"});
+			socket.emit("message_t",{say:data,sex:"woman"});
 	  });
   });
   server.listen(3303);
