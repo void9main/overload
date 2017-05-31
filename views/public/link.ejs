@@ -6,7 +6,7 @@
     <script type="text/javascript" src="/javascripts/echarts.min.js" ></script>
     <script src="http://localhost:3303/socket.io/socket.io.js"></script>
     <script>
-     	  var socket=io.connect("ws://localhost:3303");
+     	  var socket=io.connect("http://localhost:3303");
           socket.on("message_o", function (data) {
           	if(data.sex==="man"){
               $("#content_one").append(
